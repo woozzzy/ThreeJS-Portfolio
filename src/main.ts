@@ -12,7 +12,6 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.setZ(30);
 
 // Setup Renderer and Camera
 const renderer = new THREE.WebGLRenderer({
@@ -40,10 +39,10 @@ const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
 // Add visual helpers
-const lightHelper = new THREE.PointLightHelper(pointLight);
-const gridHelper = new THREE.GridHelper(200, 50);
+// const lightHelper = new THREE.PointLightHelper(pointLight);
+// const gridHelper = new THREE.GridHelper(200, 50);
 
-scene.add(lightHelper, gridHelper);
+// scene.add(lightHelper, gridHelper);
 
 // Add Mouse Orbit Controls
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -92,6 +91,7 @@ moon.position.x = -30;
 const bgTexture = new THREE.TextureLoader().load("/src/assets/background.jpg");
 scene.background = bgTexture;
 
+// Scroll Animations
 const moveCamera = () => {
   const t = document.body.getBoundingClientRect().top;
   moon.rotation.x += 0.05;
